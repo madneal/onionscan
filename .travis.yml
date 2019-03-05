@@ -1,0 +1,14 @@
+language: go
+go:
+  - 1.6.2
+  - tip
+sudo: true
+notifications:
+   email:
+     recipients:
+       - team@onionscan.org
+
+script:
+    - go test -v ./...
+    - GOFMT=$(gofmt -d .) && echo "$GOFMT"
+    - test -z "$GOFMT"
